@@ -1,13 +1,18 @@
+
+
 // Traer elementos DOM
 const $canvas = document.querySelector("canvas");
 const ctx = $canvas.getContext("2d");
 const $button = document.querySelector("button");
 
+
+
 // Variables Globales
 const enemies = 0;
-let gameOver;
 let frames = 0;
 const gravity = 0.98;
+let intervalId;
+
 
 
 //Definir clases Y metodos
@@ -23,6 +28,7 @@ class P1{
         this.image.src = "/ideas/space-jam-characters-elmer-fudd-person-human-people-sport-transparent-png-1253351.png"
         this.vy = 2;
         this.move = 10;
+        this.health = 2;
     }
 
     draw(){
@@ -48,12 +54,20 @@ class P1{
 
     touching(obj){
         return (
-            this.x < obj.x*1 + obj.width &&
+            this.x < obj.x + obj.width &&
             this.x + this.width > obj.x &&
             this.y < obj.y + obj.height &&
             this.y + this.height > obj.y
         
         )
+    }
+
+    getHealth() {
+        return this.health
+    }
+
+    liveLose() {
+        this.health--
     }
 }
 
@@ -87,6 +101,26 @@ class Jordan {
     }
 }
 
+class Live {
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.width = 50;
+        this.height = 50;
+        this.image = new Image();
+        this.image.src = "/ideas/Ball.png"
+    }
+
+    draw(){
+        if (p1.health === 2){
+            ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
+            ctx.drawImage(this.image,this.x+50,this.y,this.width,this.height)
+        } else if (p1.health === 1){
+            ctx.drawImage(this.image,this.x,this.y,this.width,this.height)
+        }
+    }
+}
+
 
 
 class Background{
@@ -97,13 +131,15 @@ class Background{
         this.height = $canvas.height;
         this.image = new Image();
         this.image.src = "https://depor.com/resizer/jb785QMrerQouriqdmq8o9QXwt8=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/LEQLFVAVTNEUDEHZZXOPNBRPAY.jpg"
-
+        
     
     }
 
     draw() {
         ctx.drawImage(this.image,0,0,$canvas.width,$canvas.height)
     }
+
+  
 }
 
 
@@ -117,36 +153,69 @@ const hoop = new Hoop ();
 const jordan1 = new Jordan (60,100);
 const jordan2 = new Jordan (600,230);
 let shoes = [jordan1,jordan2];
+let lives = new Live (500,0);
 
 
 
 // Crear flujo del juego Funciones
 
+
+
+
 function startGame() {
- setInterval(() => {
+    if(intervalId) return
+ intervalId = setInterval(() => {
      update()
  }, 1000/60);
 }
 
+
 function touching(){
 shoes.forEach((shoe) => {
 if(p1.touching(shoe)) {
-    alert('MORRISTE')
-} else if (p1.touching(hoop)){
-    alert('GANASTE!')
-}
 
+    if (p1.getHealth() > 0){
+        console.log(p1.health);
+        p1.liveLose();
+        p1.x = 520;
+        p1.y = 320;
+        
+        
+    } else {
+        drawImage()
+        gameOver();
+        
+    }
+} else if (p1.touching(hoop)){
+    clearInterval(intervalId);
+    levelTwo();
+    
+
+}
 });
 }
+
+function gameOver() {
+    
+    clearInterval(intervalId);
+    
+    
+}
+
+
+
 
 
 
 function update(){
 // 1.-Recalcular el estado del programa
-frames++
-
+frames++;
 CheckKeys()
 touching()
+
+
+
+
 
 
 jordan1.x += jordan1.vx;
@@ -160,13 +229,15 @@ if (jordan2.x + jordan2.vx > $canvas.width || jordan2.x + jordan2.vx < 0) {
 
    
 // 2.- Limpiar Canvas
-clearCanvas()
+clearCanvas();
 // 3.- Dibujar elementoss
 background.draw();
 p1.draw();
 hoop.draw();
 jordan1.draw();
 jordan2.draw();
+lives.draw();
+
 
 
 }
@@ -176,6 +247,8 @@ jordan2.draw();
 function clearCanvas() {
     ctx.clearRect(0,0, $canvas.width, $canvas.height);
 }
+
+
 
 
 
@@ -206,10 +279,17 @@ function CheckKeys() {
 
 
 // Inicializar el juego.
-$button.onclick = startGame;
+$button.addEventListener ("click",event => {
+    startGame();
+    const sound = new Audio();
+    sound.src = "/ideas/Space Jam Theme Song.mp3";
+    sound.play();
+    sound.volume = 0.3;
+    
+
+}) ;
 
 
-// ArrowUp 38
-// ArrowLeft 37
-// ArrowRight 39
-// ArrowDown 39
+
+
+

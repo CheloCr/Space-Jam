@@ -1,9 +1,42 @@
 
 
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/ideas/Space\ Galaxy\ Wallpaper\ Space\ Wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+div{
+    padding: 4em;
+    width:50%;
+    height:40%;
+    
+    background-size: cover;
+}
 
 
 canvas {
-    border: 2px solid blue;
+    width:100%;
+    border-radius: 40px;
     
+}
+button{
+    position:relative;
+    left: 30%;
+    width:400px;  
+    height: 80px;
+    font-size:3em;
+    border: none;
+    margin-top:10px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #c95bfd, #a94dd4);
+    box-shadow:  5px 5px 10px #ba54ea,
+             -5px -5px 10px #be56ee;
+    color:white;
+}
+button:hover{
+    transform: scale(1.1);
 }
 
