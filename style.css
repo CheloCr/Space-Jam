@@ -1,33 +1,50 @@
 
 
 body{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(/ideas/Space\ Galaxy\ Wallpaper\ Space\ Wallpaper.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-div{
-    padding: 4em;
-    width:50%;
-    height:40%;
-    
-    background-size: cover;
+    width:100%;
+    height:100%;
 }
 
+section.game {
+    background-color: rgb(200, 71, 233);
+    width:50%;
+    
+    display:flex;
+    flex-direction:row;
+    border-radius:40px;
+    
+    
+}
+
+div.button{
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+
+section.instructions {
+    background: none;
+    color:white;
+    
+    font-size:2rem;
+}
+
+img.keys {
+    width:130px;
+    height:100px;
+}
 
 canvas {
-    width:100%;
-    border-radius: 40px;
-    
+    border-radius: 40px;  
 }
 button{
-    position:relative;
-    left: 30%;
-    width:400px;  
-    height: 80px;
-    font-size:3em;
+    
+    width:150px;  
+    height: 50px;
+    font-size:2em;
     border: none;
     margin-top:10px;
     border-radius: 30px;
@@ -40,3 +57,13 @@ button:hover{
     transform: scale(1.1);
 }
 
+
+section.gameTwo{
+    display:
+}
+
+
+canvas#gameTwo {
+
+border: 2px solid blue;
+}

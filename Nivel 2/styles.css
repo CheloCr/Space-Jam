@@ -1,0 +1,16 @@
+
+body{
+    display:flex;
+    justify-content: center;
+    align-content:center;
+}
+
+
+canvas {
+    width:800px;
+    height: 500px;
+    border: 2px solid red;
+    background-image:url(/img/stars.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
