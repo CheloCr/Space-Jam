@@ -1,14 +1,23 @@
 
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+
 body{
     width:100%;
     height:100%;
 }
 
 section.game {
-    background-color: rgb(200, 71, 233);
+    background-color: rgb(112, 50, 197);
     width:50%;
-    
+    margin-bottom:50px;
     display:flex;
     flex-direction:row;
     border-radius:40px;
@@ -40,7 +49,7 @@ img.keys {
 canvas {
     border-radius: 40px;  
 }
-button{
+button.btn1{
     
     width:150px;  
     height: 50px;
@@ -50,20 +59,126 @@ button{
     border-radius: 30px;
     background: linear-gradient(145deg, #c95bfd, #a94dd4);
     box-shadow:  5px 5px 10px #ba54ea,
-             -5px -5px 10px #be56ee;
+                -5px -5px 10px #be56ee;
     color:white;
+    cursor: pointer;
+    outline: none;
 }
 button:hover{
     transform: scale(1.1);
 }
 
 
-section.gameTwo{
+/* section.gameTwo{
     display:
-}
+} */
 
 
 canvas#gameTwo {
 
 border: 2px solid blue;
+}
+
+
+div.container{
+    width:800px;
+    height: 600px;
+    position: absolute;
+    border: 2px solid red;
+    background-image:url(./ideas/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+div.score{
+    font-size: 170px;
+    font-weight:bold;
+    color:rgb(38, 7, 73);
+    position: absolute;
+    top:5%;
+    left:10%;
+    transform: translate(-50%, -50%);
+    width:200px;
+    height:100px;
+    text-align: center;
+}
+
+
+div.counter{
+position:absolute;
+top: 100px;
+width:100%;
+font-size:50px;
+color:rgb(38, 7, 73);
+text-align:center;
+font-weight: bold;
+
+}
+
+button.btn{
+    position:absolute;
+    bottom:2px;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 50px;
+    border-radius:30px;
+    z-index:200;
+    cursor: pointer;
+    border:none;
+    outline: none;
+
+}
+
+div.game{
+    width:600px;
+    height: 400px;
+    margin: 70px auto;
+    z-index:200;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+div.rock{
+    flex: 1 0 33.33%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+div.rock:after{
+    content: "";
+    display: block;
+    background-image: url(./ideas/piedra.png);
+    background-size: contain;
+    position:absolute;
+    width:100%;
+    height: 70px;
+    z-index:2;
+    bottom: -30px;
+
+}
+
+div.place{
+
+    background-image: url(./ideas/bugsFace.png);
+    position:absolute;
+    top:100%;
+    width:100%;
+    height: 100%;
+    transition:0.4s;
+    background-repeat:no-repeat;
+    background-position: bottom;
+}
+
+div.place.small{
+background-size: 50%;
+}
+
+div.place.large{
+    background-size: 80%;
+}
+
+.rock.up .place {
+    top:0;
 }

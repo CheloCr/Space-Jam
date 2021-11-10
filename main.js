@@ -285,14 +285,14 @@ function CheckKeys() {    // <------------------------------ CONTROL DE TECLAS -
 
 // Inicializar el juego.
 $button.addEventListener ("click",event => {
-    
+    startGame();
     const sound = new Audio();
     sound.src = "/ideas/Space Jam Theme Song.mp3";
     // sound.play();
     sound.volume = 0.2;
 
 }) ;
-startGame();
+
 
 
 
