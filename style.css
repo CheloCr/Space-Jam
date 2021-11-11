@@ -1,5 +1,4 @@
 
-
 *{
     margin:0;
     padding:0;
@@ -14,9 +13,34 @@ body{
     height:100%;
 }
 
-section.game {
-    background-color: rgb(112, 50, 197);
+
+
+img.logo{
+    width:100px;
+    height: 70px;
+
+
+}
+
+juego1{
+    display:flex;
+    flex-direction:wrap;
+}
+section.general{
     width:50%;
+    height: 600px;
+    
+}
+
+article{
+    width:50%;
+    background-color: red;
+
+}
+
+section.game {
+    background-color:rgb(228, 228, 228);
+    width:100%;
     margin-bottom:50px;
     display:flex;
     flex-direction:row;
@@ -26,7 +50,6 @@ section.game {
 }
 
 div.button{
-    
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,11 +58,13 @@ div.button{
 }
 
 section.instructions {
-    background: none;
-    color:white;
-    
-    font-size:2rem;
+    color:black;
+    text-align: center;
+    font-size:1.5rem;
+    padding:30px;
 }
+
+
 
 img.keys {
     width:130px;
@@ -47,7 +72,9 @@ img.keys {
 }
 
 canvas {
-    border-radius: 40px;  
+    width:800px;
+    height:100%;
+    border-radius: 40px; 
 }
 button.btn1{
     
@@ -74,29 +101,37 @@ button:hover{
 } */
 
 
-canvas#gameTwo {
 
-border: 2px solid blue;
-}
 
 
 div.container{
-    width:800px;
-    height: 600px;
+    width:50%;
+    height: 700px;
     position: absolute;
-    border: 2px solid red;
     background-image:url(./ideas/bg.png);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
+    border:5px solid blue;
+   
+    
 }
 
+div.instructions {
+    color:white;
+    font-size:2em;
+    background-color: black;
+    width:100%;
+}
+
+
+
 div.score{
-    font-size: 170px;
+    font-size: 140px;
     font-weight:bold;
     color:rgb(38, 7, 73);
     position: absolute;
-    top:5%;
+    top:2%;
     left:10%;
     transform: translate(-50%, -50%);
     width:200px;
@@ -118,8 +153,8 @@ font-weight: bold;
 
 button.btn{
     position:absolute;
-    bottom:2px;
-    left:50%;
+    top:200px;
+    left:10%;
     transform: translate(-50%, -50%);
     padding: 20px 50px;
     border-radius:30px;
@@ -127,6 +162,7 @@ button.btn{
     cursor: pointer;
     border:none;
     outline: none;
+    background-color: #a94dd4;
 
 }
 

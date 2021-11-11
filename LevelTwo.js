@@ -8,11 +8,13 @@ const start = document.querySelector('.btn')
 
 
 
-let lastPlace;
+let lastPlace; // Este valor es undefined
 let timeUp = false;
 let time = 30000; // 30 segundos.
 let score = 0; // Score inicial
 let counterDown; // Contador de segundos
+
+console.log(lastPlace);
 
 
 //<--------------------------------- ESCOGE UNA ROCA ALEATORIAMENTE --------------------------------->
@@ -22,7 +24,7 @@ function pickRock(rocks){
     if(rock === lastPlace) { // No aparece el personaje en el mismo lugar 2 veces
         return pickRock(rocks)
     }
-    // lastPlace = rock;
+    lastPlace = rock;
     return rock;
 }
 //<--------------------------------------------- PERSONAJE  ------------------------------------------->
