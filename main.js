@@ -11,8 +11,8 @@ const $button = document.querySelector("button");
 let frames = 0;
 const gravity = 0.98;
 let intervalId;
-let lose = false; 
-
+let lose = false;
+let win = false;
 
 
 //Definir clases Y metodos
@@ -138,8 +138,10 @@ class Background{ // <-------------------------------------------------------- C
         this.height = $canvas.height;
         this.image = new Image();
         this.image.src = "https://depor.com/resizer/jb785QMrerQouriqdmq8o9QXwt8=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/LEQLFVAVTNEUDEHZZXOPNBRPAY.jpg"
-        this.lose = new Image ();
+        this.lose = new Image();
         this.lose.src = "./ideas/Lose.jpg";
+        this.win =new Image();
+        this.win.src = "./ideas/jordanwin.jpg"
         
     
     }
@@ -148,9 +150,10 @@ class Background{ // <-------------------------------------------------------- C
         if (lose === true ) {
             ctx.drawImage(this.lose,0,0, $canvas.width, $canvas.height);
             // clearInterval(intervalId); // Limpa el intervalo   
-        } else {
-            ctx.drawImage(this.image,0,0,$canvas.width,$canvas.height);
-            
+        } else if ( win === true ) {
+            ctx.drawImage(this.win,0,0,$canvas.width,$canvas.height);      
+    } else {
+        ctx.drawImage(this.image,0,0,$canvas.width,$canvas.height);
     }
 }
 }
@@ -195,8 +198,9 @@ if(p1.touching(shoe)) { // Si P1 está tocando un tenis realiza lo siguiente :
         gameOver(); // Se acaba el juego
     }
 } else if (p1.touching(hoop)){
-     
+    
     clearInterval(intervalId);
+    winGame();
    
     
 }
@@ -210,6 +214,9 @@ function gameOver() { // ---------------- Función una vez que ya se perdió ---
     lose = true;
 }
 
+function winGame() { // ---------------- Función una vez que ya se perdió ----------------------------
+    win = true;
+}
 
 
 
@@ -245,6 +252,8 @@ lives.LivesText();
 
 if (lose === true) {
     background.draw(); 
+} else if ( win === true) {
+    background.draw();
 }
 
 }
