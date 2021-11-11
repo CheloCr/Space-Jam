@@ -151,9 +151,10 @@ class Background{ // <-------------------------------------------------------- C
             ctx.drawImage(this.lose,0,0, $canvas.width, $canvas.height);
             // clearInterval(intervalId); // Limpa el intervalo   
         } else if ( win === true ) {
-            ctx.drawImage(this.win,0,0,$canvas.width,$canvas.height);      
+            ctx.drawImage(this.win,0,0,$canvas.width,$canvas.height);    
     } else {
         ctx.drawImage(this.image,0,0,$canvas.width,$canvas.height);
+        
     }
 }
 }
@@ -180,7 +181,10 @@ function startGame() {
     if(intervalId) return
  intervalId = setInterval(() => {
      update();
+     
+     
  }, 1000/60);
+
 }
 
 
@@ -196,9 +200,9 @@ if(p1.touching(shoe)) { // Si P1 está tocando un tenis realiza lo siguiente :
         
     } else { // Si Healt no es mayor a 0 entonces.....
         gameOver(); // Se acaba el juego
+        
     }
 } else if (p1.touching(hoop)){
-    
     clearInterval(intervalId);
     winGame();
    
@@ -226,6 +230,9 @@ function update(){ // ---------------------------- Función para refrescar la p�
 frames++;
 CheckKeys()
 touching()
+
+
+
 
 
 
@@ -293,15 +300,16 @@ function CheckKeys() {    // <------------------------------ CONTROL DE TECLAS -
 
 
 // Inicializar el juego.
-$button.addEventListener ("click",event => {
+$button.addEventListener("click",event => {
+   
     startGame();
+
     const sound = new Audio();
     sound.src = "/ideas/Space Jam Theme Song.mp3";
     // sound.play();
     sound.volume = 0.2;
 
 }) ;
-
 
 
 
