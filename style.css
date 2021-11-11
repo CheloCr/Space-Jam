@@ -1,8 +1,12 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@1,100;1,200;1,300&family=IBM+Plex+Serif&display=swap');
+
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family: 'IBM Plex Serif', serif;
 }
 
 
@@ -11,6 +15,13 @@
 body{
     width:100%;
     height:100%;
+    
+}
+
+img.redes{
+    margin-left:5px;
+    width:50px;
+
 }
 
 
@@ -18,33 +29,67 @@ body{
 img.logo{
     width:100px;
     height: 70px;
-
-
 }
 
-juego1{
+div.juego1{
     display:flex;
     flex-direction:wrap;
-}
-section.general{
-    width:50%;
-    height: 600px;
+    margin-bottom:200px;
+    margin-top:5px;
     
 }
 
-article{
+section.general{
     width:50%;
-    background-color: red;
+    height: 495px;
+    margin-bottom: 200px;
+    
+   
+    
+}
 
+article.one{
+    width:50%;
+    height: 495px;
+    margin-bottom: 200px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+div.datos{
+    width:100%;
+    float:right;
+    padding:10px;
+}
+
+h2{
+    color:red;
+    text-align: center;
+}
+
+li{
+    font-size:1.5rem;
+    line-height: 40px;
+    text-align: left;
+}
+
+
+
+img.photo-1 {
+    padding-top:10px;
+    width:600px;
 }
 
 section.game {
-    background-color:rgb(228, 228, 228);
+   
+   
     width:100%;
-    margin-bottom:50px;
+    margin-bottom:100px;
     display:flex;
     flex-direction:row;
-    border-radius:40px;
     
     
 }
@@ -59,9 +104,10 @@ div.button{
 
 section.instructions {
     color:black;
+    font-weight: bold;
     text-align: center;
-    font-size:1.5rem;
-    padding:30px;
+    font-size:1.3rem;
+    padding:10px;
 }
 
 
@@ -72,7 +118,7 @@ img.keys {
 }
 
 canvas {
-    width:800px;
+    width:600px;
     height:100%;
     border-radius: 40px; 
 }
@@ -96,13 +142,21 @@ button:hover{
 }
 
 
-/* section.gameTwo{
-    display:
-} */
 
 
+/* <-------------------------------------------------------JUGO 2 ------------------------------------------------------->  */
 
+section.gameTwo{
+    width:50%;
+    height:700px;
+    float: right;
+}
 
+section.info{
+    float: right;
+    width:50%;
+    height:700px;
+}
 
 div.container{
     width:50%;
@@ -112,7 +166,8 @@ div.container{
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
-    border:5px solid blue;
+    border-radius: 40px; 
+ 
    
     
 }
@@ -122,6 +177,27 @@ div.instructions {
     font-size:2em;
     background-color: black;
     width:100%;
+}
+
+div.info{
+    width:100%;
+    
+}
+
+p.info {
+    text-align: justify;
+    padding:10px 40px;
+    font-size:1.2rem;
+    line-height: 20px;
+}
+
+span{
+    color:black;
+    font-weight: bold;
+}
+img.photo-2{
+position:absolute;
+left:150px;
 }
 
 
@@ -148,6 +224,7 @@ font-size:50px;
 color:rgb(38, 7, 73);
 text-align:center;
 font-weight: bold;
+
 
 }
 
